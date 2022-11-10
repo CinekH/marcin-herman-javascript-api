@@ -105,6 +105,12 @@ export const createProduct = async (req, res) => {
     const price = priceValidation(req.body.price);
     const name = nameValidation(req.body.name);
 
+    //if data is invalid dispaly message
+    if(price === null || name === null) {
+      res.status(400).json({ message: "Data validation failed." });
+      return;
+    }
+    
     //create new product and save to db
     const product = new Product({ price: price, name: name });
     await product.save();
