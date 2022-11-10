@@ -9,6 +9,7 @@ import {
 
 const router = express.Router();
 
+// launch controller for every possible route
 router.get("/products-list", getProductsList);
 router.get("/product/:id", getProduct);
 router.put("/product-update", updateProduct);
